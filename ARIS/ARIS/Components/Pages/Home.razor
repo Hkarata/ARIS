@@ -1,0 +1,110 @@
+﻿@page "/"
+@attribute [OutputCache(Duration = 5)]
+
+@using ARIS.Shared.Responses
+
+@inject ARISApiClient _apiClient
+
+<PageTitle>Home</PageTitle>
+
+<FluentStack Style="font-family:Bahnschrift;" Orientation="Orientation.Horizontal">
+    <FluentCard Style="padding:8px 8px;display:flex;flex-direction:column;gap:10px">
+        <FluentLabel Style="font-family:Bahnschrift">Students</FluentLabel>
+        @if (data is null)
+        {
+            <FluentSkeleton Shimmer="true" Width="100%" />
+            <FluentSkeleton Shimmer="true" Width="100%" />
+        }
+        else
+        {
+            <div style="display:flex;flex-direction:row;width:100%;justify-content:space-between;align-items:center;">
+                <FluentLabel Style="font-family:Bahnschrift">Total Students</FluentLabel>
+                <FluentLabel Style="font-family:Bahnschrift">@data.NumberOfStudents</FluentLabel>
+            </div>
+            <div style="display:flex;flex-direction:row;width:100%;justify-content:space-between;align-items:center;">
+                <FluentLabel Style="font-family:Bahnschrift">Girls</FluentLabel>
+                <FluentLabel Style="font-family:Bahnschrift">@data.NumberOfGirls</FluentLabel>
+            </div>
+            <div style="display:flex;flex-direction:row;width:100%;justify-content:space-between;align-items:center;">
+                <FluentLabel Style="font-family:Bahnschrift">Boys</FluentLabel>
+                <FluentLabel Style="font-family:Bahnschrift">@data.NumberOfBoys</FluentLabel>
+            </div>
+        }
+
+    </FluentCard>
+    <FluentCard Style="padding:8px 8px;display:flex;flex-direction:column;gap:10px">
+        <FluentLabel Style="font-family:Bahnschrift">Teachers</FluentLabel>
+        <FluentSkeleton Shimmer="true" Width="100%" />
+        <FluentSkeleton Shimmer="true" Width="100%" />
+    </FluentCard>
+    <FluentCard Style="padding:8px 8px;display:flex;flex-direction:column;gap:10px">
+        <FluentLabel Style="font-family:Bahnschrift">Academic Reports</FluentLabel>
+        <FluentSkeleton Shimmer="true" Width="100%"/>
+        <FluentSkeleton Shimmer="true" Width="100%" />
+    </FluentCard>
+</FluentStack>
+<br />
+<FluentStack Style="font-family:Bahnschrift;" Orientation="Orientation.Horizontal">
+    <FluentCard Style="padding:8px 8px;display:flex;flex-direction:column;gap:10px">
+        <FluentLabel Style="font-family:Bahnschrift">Student's Health Status</FluentLabel>
+        @if (data is null)
+        {
+            <FluentSkeleton Shimmer="true" Width="100%" />
+            <FluentSkeleton Shimmer="true" Width="100%" />
+        }
+        else
+        {
+            <div style="display:flex;flex-direction:row;width:100%;justify-content:space-between;align-items:center;">
+                <FluentLabel Style="font-family:Bahnschrift">Sick Students</FluentLabel>
+                <FluentLabel Style="font-family:Bahnschrift">@data.NumberOfSick</FluentLabel>
+            </div>
+            <div style="display:flex;flex-direction:row;width:100%;justify-content:space-between;align-items:center;">
+                <FluentLabel Style="font-family:Bahnschrift">Admitted Students</FluentLabel>
+                <FluentLabel Style="font-family:Bahnschrift">@data.NumberOfAdmitted</FluentLabel>
+            </div>
+            <div style="display:flex;flex-direction:row;width:100%;justify-content:space-between;align-items:center;">
+                <FluentLabel Style="font-family:Bahnschrift">Outpatient Students</FluentLabel>
+                <FluentLabel Style="font-family:Bahnschrift">@data.NumberOfOutpatient</FluentLabel>
+            </div>
+        }
+    </FluentCard>
+    <FluentCard Style="padding:8px 8px;display:flex;flex-direction:column;gap:10px">
+        <FluentLabel Style="font-family:Bahnschrift">Health Reports</FluentLabel>
+        <FluentSkeleton Shimmer="true" Width="100%" />
+        <FluentSkeleton Shimmer="true" Width="100%" />
+        
+    </FluentCard>
+    <FluentCard Style="padding:8px 8px;display:flex;flex-direction:column;gap:10px">
+        <FluentLabel Style="font-family:Bahnschrift">Discipline Reports</FluentLabel>
+        <FluentSkeleton Shimmer="true" Width="100%" />
+        <FluentSkeleton Shimmer="true" Width="100%" />
+    </FluentCard>
+</FluentStack>
+<br />
+<FluentStack Style="font-family:Bahnschrift;" Orientation="Orientation.Horizontal">
+    <FluentCard Style="padding:8px 8px;display:flex;flex-direction:column;gap:10px">
+        <FluentLabel Style="font-family:Bahnschrift">School Fees</FluentLabel>
+        <FluentSkeleton Shimmer="true" Width="100%" />
+        <FluentSkeleton Shimmer="true" Width="100%" />
+    </FluentCard>
+    <FluentCard Style="padding:8px 8px;display:flex;flex-direction:column;gap:10px">
+        <FluentLabel Style="font-family:Bahnschrift">School Fees Reports</FluentLabel>
+        <FluentSkeleton Shimmer="true" Width="100%" />
+        <FluentSkeleton Shimmer="true" Width="100%" />
+    </FluentCard>
+    <FluentCard Style="padding:8px 8px;display:flex;flex-direction:column;gap:10px">
+        <FluentLabel Style="font-family:Bahnschrift">All Reports</FluentLabel>
+        <FluentSkeleton Shimmer="true" Width="100%" />
+        <FluentSkeleton Shimmer="true" Width="100%" />
+    </FluentCard>
+</FluentStack>
+
+
+@code {
+    private DashboardData data = new DashboardData();
+
+    protected override async Task OnInitializedAsync()
+    {
+       data = await _apiClient.GetDashboardData();
+    }
+}

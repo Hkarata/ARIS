@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34511.98
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ARIS", "ARIS\ARIS\ARIS.csproj", "{324E114B-CF71-4A93-AB43-3E5770E21E44}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ARIS.Client", "ARIS\ARIS.Client\ARIS.Client.csproj", "{C03BED14-9A5A-4CCE-92E1-3C507E34C86C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ARIS.Shared", "ARIS.Shared\ARIS.Shared.csproj", "{7662717C-AB0A-46F9-8F75-3631962756CE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ARIS.AppHost", "ARIS.AppHost\ARIS.AppHost.csproj", "{D37A9D2C-D2BA-49A5-9885-314D29CA8885}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ARIS.ServiceDefaults", "ARIS.ServiceDefaults\ARIS.ServiceDefaults.csproj", "{2D152689-A694-49D3-A697-832CFB8F8668}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ARIS.Api", "..\ARIS.Api\ARIS.Api\ARIS.Api.csproj", "{3919ADB6-94C3-4307-A5E6-2547FA8A3BE0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{324E114B-CF71-4A93-AB43-3E5770E21E44}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{324E114B-CF71-4A93-AB43-3E5770E21E44}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{324E114B-CF71-4A93-AB43-3E5770E21E44}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{324E114B-CF71-4A93-AB43-3E5770E21E44}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C03BED14-9A5A-4CCE-92E1-3C507E34C86C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C03BED14-9A5A-4CCE-92E1-3C507E34C86C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C03BED14-9A5A-4CCE-92E1-3C507E34C86C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C03BED14-9A5A-4CCE-92E1-3C507E34C86C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7662717C-AB0A-46F9-8F75-3631962756CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7662717C-AB0A-46F9-8F75-3631962756CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7662717C-AB0A-46F9-8F75-3631962756CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7662717C-AB0A-46F9-8F75-3631962756CE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D37A9D2C-D2BA-49A5-9885-314D29CA8885}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D37A9D2C-D2BA-49A5-9885-314D29CA8885}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D37A9D2C-D2BA-49A5-9885-314D29CA8885}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D37A9D2C-D2BA-49A5-9885-314D29CA8885}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2D152689-A694-49D3-A697-832CFB8F8668}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2D152689-A694-49D3-A697-832CFB8F8668}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2D152689-A694-49D3-A697-832CFB8F8668}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2D152689-A694-49D3-A697-832CFB8F8668}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3919ADB6-94C3-4307-A5E6-2547FA8A3BE0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3919ADB6-94C3-4307-A5E6-2547FA8A3BE0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3919ADB6-94C3-4307-A5E6-2547FA8A3BE0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3919ADB6-94C3-4307-A5E6-2547FA8A3BE0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9AF7195C-B404-4FF4-899C-A552CF894434}
+	EndGlobalSection
+EndGlobal

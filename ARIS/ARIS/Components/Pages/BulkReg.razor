@@ -1,0 +1,37 @@
+﻿@page "/jobs/bulk-registration"
+@rendermode InteractiveAuto
+
+<PageTitle>Bulk Registration</PageTitle>
+<p style="font-size:20px;font-weight:400;font-family:Bahnschrift">Student Bulk Registration</p>
+
+<div style="padding:8px;background-color:#ddd;border-radius:8px;font-family:Bahnschrift">
+    <p style="font-family:Bahnschrift">This feature streamlines the process of registering a substantial number of students.</p>
+    <ol>
+        <li>Download the template file.</li>
+        <li>Fill in the template file with the student information.</li>
+        <li>Upload the template file.</li>
+        <li>Click the "Register" button.</li>
+    </ol>
+</div>
+<br />
+
+<FluentAnchor Appearance="Appearance.Accent" Href="/Files/StudentBulk.xlsx" Download="StudentBulk.xlsx">
+    Download xlsx sheet
+    <FluentIcon Value="@(new Icons.Regular.Size20.ArrowDownload())" Color="@Color.Lightweight" Slot="start" />
+</FluentAnchor>
+
+<FluentButton Style="font-family:Bahnschrift" IconStart="@(new Icons.Regular.Size20.ArrowUpload())"
+              Appearance="Appearance.Accent">
+    Upload xlsx sheet
+</FluentButton>
+<br />
+<br />
+<div style="padding:8px;gap:15px;background-color:#ddd;border-radius:8px;font-family:Bahnschrift;width:100%;display:flex;flex-direction:row;justify-content:start;align-items:center;">
+    <FluentProgressRing></FluentProgressRing>
+    <p style="font-family:Bahnschrift;text-align:center;font-size:18px;display:flex;align-items:center;">Starting Job</p>
+</div>
+
+
+@code {
+
+}

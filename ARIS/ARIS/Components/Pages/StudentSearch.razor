@@ -1,0 +1,94 @@
+﻿@page "/students/student-search"
+@rendermode InteractiveServer
+
+@using ARIS.Shared.Responses
+
+@inject ARISApiClient _apiClient
+@inject NavigationManager _navigationManager
+
+<PageTitle>Student Search</PageTitle>
+
+<p style="font-family:Bahnschrift;font-size:18px">Student Search</p>
+
+<FluentSearch @onkeyup="ClearItems" @bind-Value="Name" @bind-Value:after="HandleClear" @oninput="HandleSearch" Autofocus="true" Appearance="FluentInputAppearance.Outline" Placeholder="Search for a student" Style="width:100%;font-family:Bahnschrift;" />
+
+<table >
+<thead>
+        <tr>
+            <th>First Name</th>
+            <th>Middle Name</th>
+            <th>Last Name</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (filterred != null)
+        {
+            @foreach (var student in filterred)
+            {
+                <tr @onclick="() => NavigateToStudent(student.Id)">
+                    <td>@student.FirstName</td>
+                    <td>@student.MiddleName</td>
+                    <td>@student.LastName</td>
+                </tr>
+
+            }
+        }
+        else
+        {
+            <tr>
+                <td colspan="4">No students found</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@code {
+
+    private String Name { get; set; } = String.Empty;
+
+    private List<StudentBasicData>? Students;
+
+    protected override async Task OnInitializedAsync()
+    {
+        Students = await _apiClient.GetAllStudentsBasicData();
+    }
+
+    private List<StudentBasicData>? filterred;
+
+    private void HandleSearch(ChangeEventArgs args)
+    {
+        if (args.Value is string value)
+        {
+            Name = value;
+            filterred = Students?.Where(s => s.FirstName.Contains(Name, StringComparison.CurrentCultureIgnoreCase)
+            || s.MiddleName.Contains(Name, StringComparison.CurrentCultureIgnoreCase)
+            || s.LastName.Contains(Name, StringComparison.CurrentCultureIgnoreCase)).ToList();
+        }
+    }
+
+    private void HandleClear()
+    {
+        if (string.IsNullOrWhiteSpace(Name))
+        {
+            Name = string.Empty;
+            filterred = null;
+        }
+        if (string.IsNullOrEmpty(Name))
+        {
+            filterred = null;
+        }
+    }
+
+    private void ClearItems()
+    {
+        if (string.IsNullOrEmpty(Name))
+        {
+            filterred = null;
+        }
+    }
+
+    private void NavigateToStudent(int id)
+    {
+        _navigationManager.NavigateTo($"/students/student/{id}");
+    }
+}

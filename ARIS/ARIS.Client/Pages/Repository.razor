@@ -1,0 +1,119 @@
+﻿@page "/repository"
+
+<PageTitle>Repository</PageTitle>
+
+<p style="font-family:Bahnschrift;font-size:18px">Repository</p>
+
+<FluentCard Style="padding: 8px 8px">
+    <FluentSearch Placeholder="Search for an item" Autofocus="true" Appearance="FluentInputAppearance.Outline" Style="width:100%;font-family:Bahnschrift;" />
+    <br />
+    <br />
+    <FluentLabel Style="font-family:Bahnschrift">Search Results</FluentLabel>
+    <div style="display:flex;flex-direction:column;gap:12px;">
+        <FluentSkeleton Shimmer="true" Width="100%" />
+        <FluentSkeleton Shimmer="true" Width="100%" />
+        <FluentSkeleton Shimmer="true" Width="100%" />
+    </div>
+</FluentCard>
+
+<br />
+<br />
+<p style="font-family:Bahnschrift;font-size:18px">Examinations</p>
+<FluentStack Orientation="Orientation.Horizontal">
+    <FluentCard Style="padding:8px 8px;display:flex;flex-direction:row;justify-content:space-between;align-items:center;border-color:greenyellow">
+        <FluentLabel Style="font-family:Bahnschrift">Weekly Test</FluentLabel>
+        <FluentLabel Style="font-family:Bahnschrift">420</FluentLabel>
+    </FluentCard>
+    <FluentCard Style="padding:8px 8px;display:flex;flex-direction:row;justify-content:space-between;align-items:center;border-color:dodgerblue">
+        <FluentLabel Style="font-family:Bahnschrift">Monthly Exam</FluentLabel>
+        <FluentLabel Style="font-family:Bahnschrift">420</FluentLabel>
+    </FluentCard>
+    <FluentCard Style="padding:8px 8px;display:flex;flex-direction:row;justify-content:space-between;align-items:center;border-color:darkred">
+        <FluentLabel Style="font-family:Bahnschrift">Terminal Exam</FluentLabel>
+        <FluentLabel Style="font-family:Bahnschrift">420</FluentLabel>
+    </FluentCard>
+    <FluentCard Style="padding:8px 8px;display:flex;flex-direction:row;justify-content:space-between;align-items:center;border-color:orange">
+        <FluentLabel Style="font-family:Bahnschrift">Annual Exam</FluentLabel>
+        <FluentLabel Style="font-family:Bahnschrift">420</FluentLabel>
+    </FluentCard>
+</FluentStack>
+
+<br />
+<br />
+<p style="font-family:Bahnschrift;font-size:18px">Learning Resources</p>
+<FluentGrid Justify="JustifyContent.FlexStart">
+    <FluentGridItem xs="3">
+        <FluentCard Style="border-color:gray;">
+            <img src="/Images/civics.jpg" width="100%" height="150px"/>
+            <br />
+            <FluentLabel Style="font-family:Bahnschrift;">Civics</FluentLabel>
+            </FluentCard>
+    </FluentGridItem>
+    <FluentGridItem xs="3">
+        <FluentCard Style="border-color:gray;">
+            <img src="/Images/geography.jpg" width="100%" height="150px" />
+            <br />
+            <FluentLabel Style="font-family:Bahnschrift;">Geography</FluentLabel>
+        </FluentCard>
+    </FluentGridItem>
+    <FluentGridItem xs="3">
+        <FluentCard Style="border-color:gray;">
+            <img src="/Images/history.jpg" width="100%" height="150px" />
+            <br />
+            <FluentLabel Style="font-family:Bahnschrift;">History</FluentLabel>
+        </FluentCard>
+    </FluentGridItem>
+    <FluentGridItem xs="3">
+        <FluentCard Style="border-color:gray;">
+            <img src="/Images/kiswahili.jpg" width="100%" height="150px" />
+            <br />
+            <FluentLabel Style="font-family:Bahnschrift;">Kiswahili</FluentLabel>
+        </FluentCard>
+    </FluentGridItem>
+    <FluentGridItem xs="3">
+        <FluentCard Style="border-color:gray;">
+            <img src="/Images/biology.jpg" width="100%" height="150px" />
+            <br />
+            <FluentLabel Style="font-family:Bahnschrift;">Biology</FluentLabel>
+        </FluentCard>
+    </FluentGridItem>
+    <FluentGridItem xs="3">
+        <FluentCard Style="border-color:gray;">
+            <img src="/Images/chemistry.jpg" width="100%" height="150px" />
+            <br />
+            <FluentLabel Style="font-family:Bahnschrift;">Chemistry</FluentLabel>
+        </FluentCard>
+    </FluentGridItem>
+    <FluentGridItem xs="3">
+        <FluentCard Style="border-color:gray;">
+            <img src="/Images/physics.jpg" width="100%" height="150px" />
+            <br />
+            <FluentLabel Style="font-family:Bahnschrift;">Physics</FluentLabel>
+        </FluentCard>
+    </FluentGridItem>
+    <FluentGridItem xs="3">
+        <FluentCard Style="border-color:gray;">
+            <img src="/Images/english.jpg" width="100%" height="150px" />
+            <br />
+            <FluentLabel Style="font-family:Bahnschrift;">English</FluentLabel>
+        </FluentCard>
+    </FluentGridItem>
+    <FluentGridItem xs="3">
+        <FluentCard Style="border-color:gray;">
+            <img src="/Images/lit.jpg" width="100%" height="150px" />
+            <br />
+            <FluentLabel Style="font-family:Bahnschrift;">Literature in English</FluentLabel>
+        </FluentCard>
+    </FluentGridItem>
+    <FluentGridItem xs="3">
+        <FluentCard Style="border-color:gray;">
+            <img src="/Images/math.jpg" width="100%" height="150px" />
+            <br />
+            <FluentLabel Style="font-family:Bahnschrift;">Mathematics</FluentLabel>
+        </FluentCard>
+    </FluentGridItem>
+</FluentGrid>
+
+@code {
+
+}

@@ -1,0 +1,117 @@
+﻿@page "/students"
+@rendermode InteractiveAuto
+
+<PageTitle>Students</PageTitle>
+
+<p style="font-family:Bahnschrift;font-size:18px">Students</p>
+
+<FluentStack Orientation="Orientation.Horizontal">
+    <FluentCard Style="padding:8px 8px;display:flex;flex-direction:row;justify-content:space-between;align-items:center;border-color:greenyellow">
+        <FluentLabel Style="font-family:Bahnschrift">Present</FluentLabel>
+        <FluentLabel Style="font-family:Bahnschrift">420</FluentLabel>
+    </FluentCard>
+    <FluentCard Style="padding:8px 8px;display:flex;flex-direction:row;justify-content:space-between;align-items:center;border-color:mediumpurple;">
+        <FluentLabel Style="font-family:Bahnschrift">Hospitalized</FluentLabel>
+        <FluentLabel Style="font-family:Bahnschrift">10</FluentLabel>
+    </FluentCard>
+    <FluentCard Style="padding:8px 8px;display:flex;flex-direction:row;justify-content:space-between;align-items:center;border-color:yellow">
+        <FluentLabel Style="font-family:Bahnschrift">On-Sick leave</FluentLabel>
+        <FluentLabel Style="font-family:Bahnschrift">20</FluentLabel>
+    </FluentCard>
+    <FluentCard Style="padding:8px 8px;display:flex;flex-direction:row;justify-content:space-between;align-items:center;border-color:red;">
+        <FluentLabel Style="font-family:Bahnschrift">Suspended</FluentLabel>
+        <FluentLabel Style="font-family:Bahnschrift">2</FluentLabel>
+    </FluentCard>
+</FluentStack>
+<br />
+<br />
+<br />
+<FluentGrid Justify="JustifyContent.FlexStart">
+    <FluentGridItem xs="3">
+        <FluentCard Style="border-color:gray;">
+            <FluentSkeleton Shimmer="true" Width="100%" Height="100px"/>
+            <br/>
+            <FluentLabel Style="font-family:Bahnschrift;">Form One</FluentLabel>
+            <br/>
+            <FluentBadge Style="font-family:Bahnschrift" Appearance="Appearance.Accent">Stream A</FluentBadge>
+            <FluentBadge Style="font-family:Bahnschrift" Appearance="Appearance.Neutral" Fill="highlight" BackgroundColor="#ffd800;" Color="#000">Stream B</FluentBadge>
+            <FluentBadge Style="font-family:Bahnschrift" Appearance="Appearance.Neutral" Fill="highlight" BackgroundColor="#aacc00;" Color="#000">Stream C</FluentBadge>
+            <FluentBadge Style="font-family:Bahnschrift" Appearance="Appearance.Neutral" Fill="highlight" BackgroundColor="#e5383b" Color="#000">Stream D</FluentBadge>
+        </FluentCard>
+    </FluentGridItem>
+    <FluentGridItem xs="3">
+        <FluentCard Style="border-color:gray;">
+            <FluentSkeleton Shimmer="true" Width="100%" Height="100px" />
+            <br />
+            <FluentLabel Style="font-family:Bahnschrift;">Form Two</FluentLabel>
+            <br />
+            <FluentBadge Style="font-family:Bahnschrift" Appearance="Appearance.Accent">Stream A</FluentBadge>
+            <FluentBadge Style="font-family:Bahnschrift" Appearance="Appearance.Neutral" Fill="highlight" BackgroundColor="#ffd800;" Color="#000">Stream B</FluentBadge>
+            <FluentBadge Style="font-family:Bahnschrift" Appearance="Appearance.Neutral" Fill="highlight" BackgroundColor="#aacc00;" Color="#000">Stream C</FluentBadge>
+            <FluentBadge Style="font-family:Bahnschrift" Appearance="Appearance.Neutral" Fill="highlight" BackgroundColor="#e5383b" Color="#000">Stream D</FluentBadge>
+        </FluentCard>
+    </FluentGridItem>
+    <FluentGridItem xs="3">
+        <FluentCard Style="border-color:gray;">
+            <FluentSkeleton Shimmer="true" Width="100%" Height="100px" />
+            <br />
+            <FluentLabel Style="font-family:Bahnschrift;">Form Three</FluentLabel>
+            <br />
+            <FluentBadge Style="font-family:Bahnschrift" Appearance="Appearance.Accent">Stream A</FluentBadge>
+            <FluentBadge Style="font-family:Bahnschrift" Appearance="Appearance.Neutral" Fill="highlight" BackgroundColor="#ffd800;" Color="#000">Stream B</FluentBadge>
+            <FluentBadge Style="font-family:Bahnschrift" Appearance="Appearance.Neutral" Fill="highlight" BackgroundColor="#aacc00;" Color="#000">Stream C</FluentBadge>
+            <FluentBadge Style="font-family:Bahnschrift" Appearance="Appearance.Neutral" Fill="highlight" BackgroundColor="#e5383b" Color="#000">Stream D</FluentBadge>
+        </FluentCard>
+    </FluentGridItem>
+    <FluentGridItem xs="3">
+        <FluentCard Style="border-color:gray;">
+            <FluentSkeleton Shimmer="true" Width="100%" Height="100px" />
+            <br />
+            <FluentLabel Style="font-family:Bahnschrift;">Form Four</FluentLabel>
+            <br />
+            <FluentBadge Style="font-family:Bahnschrift" Appearance="Appearance.Accent">Stream A</FluentBadge>
+            <FluentBadge Style="font-family:Bahnschrift" Appearance="Appearance.Neutral" Fill="highlight" BackgroundColor="#ffd800;" Color="#000">Stream B</FluentBadge>
+            <FluentBadge Style="font-family:Bahnschrift" Appearance="Appearance.Neutral" Fill="highlight" BackgroundColor="#aacc00;" Color="#000">Stream C</FluentBadge>
+            <FluentBadge Style="font-family:Bahnschrift" Appearance="Appearance.Neutral" Fill="highlight" BackgroundColor="#e5383b" Color="#000">Stream D</FluentBadge>
+        </FluentCard>
+    </FluentGridItem>
+    <FluentGridItem xs="3">
+        <FluentCard Style="border-color:deepskyblue;">
+            <FluentSkeleton Shimmer="true" Width="100%" Height="100px" />
+            <br />
+            <FluentLabel Style="font-family:Bahnschrift;">Form Five</FluentLabel>
+            <br />
+            <FluentBadge Style="font-family:Bahnschrift" Appearance="Appearance.Accent">PCB</FluentBadge>
+            <FluentBadge Style="font-family:Bahnschrift" Appearance="Appearance.Neutral" Fill="highlight" BackgroundColor="#ffd800;" Color="#000">PCM</FluentBadge>
+            <FluentBadge Style="font-family:Bahnschrift" Appearance="Appearance.Neutral" Fill="highlight" BackgroundColor="#aacc00;" Color="#000">PGM</FluentBadge>
+            <FluentBadge Style="font-family:Bahnschrift" Appearance="Appearance.Neutral" Fill="highlight" BackgroundColor="#e5383b" Color="#000">EGM</FluentBadge>
+            <FluentBadge Style="font-family:Bahnschrift" Appearance="Appearance.Accent">HGE</FluentBadge>
+            <FluentBadge Style="font-family:Bahnschrift" Appearance="Appearance.Neutral" Fill="highlight" BackgroundColor="#ffd800;" Color="#000">HGL</FluentBadge>
+        </FluentCard>
+    </FluentGridItem>
+    <FluentGridItem xs="3">
+        <FluentCard Style="border-color:deepskyblue;">
+            <FluentSkeleton Shimmer="true" Width="100%" Height="100px" />
+            <br />
+            <FluentLabel Style="font-family:Bahnschrift;">Form Six</FluentLabel>
+            <br />
+            <FluentBadge Style="font-family:Bahnschrift" Appearance="Appearance.Accent">PCB</FluentBadge>
+            <FluentBadge Style="font-family:Bahnschrift" Appearance="Appearance.Neutral" Fill="highlight" BackgroundColor="#ffd800;" Color="#000">PCM</FluentBadge>
+            <FluentBadge Style="font-family:Bahnschrift" Appearance="Appearance.Neutral" Fill="highlight" BackgroundColor="#aacc00;" Color="#000">PGM</FluentBadge>
+            <FluentBadge Style="font-family:Bahnschrift" Appearance="Appearance.Neutral" Fill="highlight" BackgroundColor="#e5383b" Color="#000">EGM</FluentBadge>
+            <FluentBadge Style="font-family:Bahnschrift" Appearance="Appearance.Accent">HGE</FluentBadge>
+            <FluentBadge Style="font-family:Bahnschrift" Appearance="Appearance.Neutral" Fill="highlight" BackgroundColor="#ffd800;" Color="#000">HGL</FluentBadge>
+        </FluentCard>
+    </FluentGridItem>
+    <FluentGridItem xs="6">
+        <FluentAnchor Appearance="Appearance.Accent" Href="students/student-registration" Style="font-family:Bahnschrift">
+            <FluentIcon Value="@(new Icons.Regular.Size20.PersonAdd())" Color="@Color.Lightweight" Slot="start"/>
+            Student Registration
+        </FluentAnchor>
+        <FluentAnchor Appearance="Appearance.Accent" Href="students/student-search" Style="font-family:Bahnschrift">
+            <FluentIcon Value="@(new Icons.Regular.Size20.PersonSearch())" Color="@Color.Lightweight" Slot="start" />
+            Student Search
+        </FluentAnchor>
+    </FluentGridItem>
+</FluentGrid>
+

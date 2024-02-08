@@ -1,0 +1,82 @@
+﻿@page "/academics"
+
+<PageTitle>Academics</PageTitle>
+
+<p style="font-family:Bahnschrift;font-size:18px">Academics</p>
+
+<FluentStack Orientation="Orientation.Horizontal">
+    <FluentCard Style="padding:8px 8px;display:flex;flex-direction:row;justify-content:space-between;align-items:center;border-color:greenyellow">
+        <FluentLabel Style="font-family:Bahnschrift">Weekly Results</FluentLabel>
+        
+    </FluentCard>
+    <FluentCard Style="padding:8px 8px;display:flex;flex-direction:row;justify-content:space-between;align-items:center;border-color:mediumpurple;">
+        <FluentLabel Style="font-family:Bahnschrift">Monthly Results</FluentLabel>
+        
+    </FluentCard>
+    <FluentCard Style="padding:8px 8px;display:flex;flex-direction:row;justify-content:space-between;align-items:center;border-color:yellow">
+        <FluentLabel Style="font-family:Bahnschrift">Terminal &amp; Annual Results</FluentLabel>
+        
+    </FluentCard>
+    <FluentCard Style="padding:8px 8px;display:flex;flex-direction:row;justify-content:space-between;align-items:center;border-color:red;">
+        <FluentLabel Style="font-family:Bahnschrift">Academic Reports</FluentLabel>
+        
+    </FluentCard>
+</FluentStack>
+
+<br />
+<br />
+
+<FluentStack Orientation="Orientation.Horizontal">
+    <FluentCard Style="padding:8px 8px;">
+        <FluentLabel Style="font-family:Bahnschrift">Subjects</FluentLabel>
+        <br />
+        <FluentBadge Style="font-family:Bahnschrift" Appearance="Appearance.Accent">Civics</FluentBadge>
+        <FluentBadge Style="font-family:Bahnschrift" Appearance="Appearance.Neutral" Fill="highlight" BackgroundColor="#ffd800;" Color="#000">Geography</FluentBadge>
+        <FluentBadge Style="font-family:Bahnschrift" Appearance="Appearance.Neutral" Fill="highlight" BackgroundColor="#aacc00;" Color="#000">History</FluentBadge>
+        <FluentBadge Style="font-family:Bahnschrift" Appearance="Appearance.Neutral" Fill="highlight" BackgroundColor="#e5383b" Color="#000">Physics</FluentBadge>
+        <FluentBadge Style="font-family:Bahnschrift" Appearance="Appearance.Accent">Chemistry</FluentBadge>
+        <FluentBadge Style="font-family:Bahnschrift" Appearance="Appearance.Neutral" Fill="highlight" BackgroundColor="#ffd800;" Color="#000">Biology</FluentBadge>
+        <FluentBadge Style="font-family:Bahnschrift" Appearance="Appearance.Neutral" Fill="highlight" BackgroundColor="#aacc00;" Color="#000">English</FluentBadge>
+        <FluentBadge Style="font-family:Bahnschrift" Appearance="Appearance.Neutral" Fill="highlight" BackgroundColor="#e5383b" Color="#000">Literature in English</FluentBadge>
+        <FluentBadge Style="font-family:Bahnschrift" Appearance="Appearance.Neutral" Fill="highlight" BackgroundColor="#ffd800;" Color="#000">Kiswahili</FluentBadge>
+    </FluentCard>
+    <FluentCard Style="padding:8px 8px;">
+        <FluentLabel Style="font-family:Bahnschrift">Teachers</FluentLabel>
+        <br />
+    </FluentCard>
+</FluentStack>
+
+<br />
+<br />
+
+<FluentCard Style="padding:8px 8px;">
+    <FluentLabel Style="font-family:Bahnschrift">Parent-Teacher Association</FluentLabel>
+    <br />
+    <FluentTabs Width="100%" Orientation="Orientation.Horizontal" ActiveTabId="tab-v1">
+        <FluentTab Style="font-family:Bahnschrift" Id="tab-v1">
+            <Header>
+                <FluentIcon Value="@(new Icons.Regular.Size20.BranchRequest())" Color="@Color.Info"/>
+                Requested
+            </Header>
+            <Content>
+                <div style="display:flex;flex-direction:column;gap:5px;">
+                    <FluentSkeleton Shimmer="true" Width="100%" />
+                    <FluentSkeleton Shimmer="true" Width="100%" />
+                </div>
+            </Content>
+        </FluentTab>
+        <FluentTab Style="font-family:Bahnschrift" Id="tab-v2">
+            <Header>
+                <FluentIcon Value="@(new Icons.Regular.Size20.BranchCompare())" Color="@Color.Success"/>
+                Completed
+            </Header>
+            <Content>
+                <div style="display:flex;flex-direction:column;gap:5px;">
+                    <FluentSkeleton Shimmer="true" Width="100%" />
+                    <FluentSkeleton Shimmer="true" Width="100%" />
+                    <FluentSkeleton Shimmer="true" Width="100%" />
+                </div>
+            </Content>
+        </FluentTab>
+    </FluentTabs>
+</FluentCard>

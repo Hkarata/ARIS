@@ -1,0 +1,159 @@
+﻿@page "/students/student-registration"
+@rendermode InteractiveServer
+
+@using ARIS.Shared.Requests
+
+@inject ARISApiClient _apiClient
+@inject IDialogService DialogService
+
+<PageTitle>Student Registration</PageTitle>
+
+<h4 >Student Registration</h4>
+
+<EditForm Model="Input" OnValidSubmit="Register">
+    <DataAnnotationsValidator />
+    <AntiforgeryToken />
+    <FluentCard >
+        <FluentLabel Style="font-family:Bahnschrift;text-align:center">Student Details</FluentLabel>
+        <FluentGrid>
+            <FluentGridItem xs="4">
+                <FluentTextField Name="Input.FirstName" @bind-Value="Input.FirstName" Placeholder="First Name" Label="First Name" Style="width: 100%;font-family:Bahnschrift;" />
+                <ValidationMessage For="() => Input.FirstName" style="font-family:Bahnschrift;color:red;" />
+            </FluentGridItem>
+            <FluentGridItem xs="4">
+                <FluentTextField Name="Input.MiddleName" @bind-Value="Input.MiddleName" Placeholder="Middle Name" Label="Middle Name" Style="width: 100%;font-family:Bahnschrift;" />
+                <ValidationMessage For="() => Input.MiddleName" style="font-family:Bahnschrift;color:red;" />
+            </FluentGridItem>
+            <FluentGridItem xs="4">
+                <FluentTextField Name="Input.LastName" @bind-Value="Input.LastName" Placeholder="Last Name" Label="Last Name" Style="width: 100%;font-family:Bahnschrift;" />
+                <ValidationMessage For="() => Input.LastName" style="font-family:Bahnschrift;color:red;" />
+            </FluentGridItem>
+            <FluentGridItem xs="4">
+                <FluentDatePicker Name="Input.DateOfBirth" @bind-Value="Input.DateOfBirth" Placeholder="Date of Birth" Label="Date of Birth" Style="width: 100%;font-family:Bahnschrift;" />
+                <ValidationMessage For="() => Input.DateOfBirth" style="font-family:Bahnschrift;color:red;" />
+            </FluentGridItem>
+        </FluentGrid>
+        <br/>
+        <FluentLabel Style="font-family:Bahnschrift;text-align:center">Parent/Guardian Details</FluentLabel>
+        <FluentGrid>
+            <FluentGridItem xs="4">
+                <FluentTextField Name="Input.FathersName" @bind-Value="Input.FathersName" Placeholder="Father's Name" Label="Father's Name" Style="width: 100%;font-family:Bahnschrift;" />
+                <ValidationMessage For="() => Input.FathersName" style="font-family:Bahnschrift;color:red;" />
+            </FluentGridItem>
+            <FluentGridItem xs="4">
+                <FluentTextField Name="Input.MothersName" @bind-Value="Input.MothersName" Placeholder="Mother's Name" Label="Mother's Name" Style="width: 100%;font-family:Bahnschrift;" />
+                <ValidationMessage For="() => Input.MothersName" style="font-family:Bahnschrift;color:red;" />
+            </FluentGridItem>
+            <FluentGridItem xs="4">
+                <FluentTextField Name="Input.GuardianName" @bind-Value="Input.GuardianName" Placeholder="Guardian's Name" Label="Guardian's Name" Style="width: 100%;font-family:Bahnschrift;" />
+                <ValidationMessage For="() => Input.GuardianName" style="font-family:Bahnschrift;color:red;" />
+            </FluentGridItem>
+        </FluentGrid>
+        <br />
+        <FluentLabel Style="font-family:Bahnschrift;text-align:center">Contact Details</FluentLabel>
+        <FluentGrid>
+            <FluentGridItem xs="4">
+                <FluentTextField Name="Input.FathersPhone" @bind-Value="Input.FathersPhone" Placeholder="Father's Phone" Label="Father's Phone" Style="width: 100%;font-family:Bahnschrift;" />
+                <ValidationMessage For="() => Input.FathersPhone" style="font-family:Bahnschrift;color:red;" />
+            </FluentGridItem>
+            <FluentGridItem xs="4">
+                <FluentTextField Name="Input.MothersPhone" @bind-Value="Input.MothersPhone" Placeholder="Mother's Phone" Label="Mother's Phone" Style="width: 100%;font-family:Bahnschrift;" />
+                <ValidationMessage For="() => Input.MothersPhone" style="font-family:Bahnschrift;color:red;" />
+            </FluentGridItem>
+            <FluentGridItem xs="4">
+                <FluentTextField Name="Input.GuardianPhone" @bind-Value="Input.GuardianPhone" Placeholder="Guardian's Phone" Label="Guardian's Phone" Style="width: 100%;font-family:Bahnschrift;" />
+                <ValidationMessage For="() => Input.GuardianPhone" style="font-family:Bahnschrift;color:red;" />
+            </FluentGridItem>
+        </FluentGrid>
+        <br />
+        <br />
+        <FluentButton Loading="@loading" Type="ButtonType.Submit" Appearance="Appearance.Accent" Style="width: 100%;font-family:Bahnschrift;">Register</FluentButton>
+    </FluentCard>
+</EditForm>
+
+<br />
+<br />
+
+
+
+
+@code {
+
+    [SupplyParameterFromForm]
+    private InputModel Input { get; set; } = new InputModel();
+
+    private bool loading = false;
+
+    private bool? canceled;
+
+    private sealed class InputModel
+    {
+        [Required]
+        [Display(Name = "First Name")]
+        [StringLength(20, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 3)]
+        public string FirstName { get; set; } = string.Empty;
+
+        [Required]
+        [Display(Name = "Last Name")]
+        [StringLength(12, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 3)]
+        public string LastName { get; set; } = string.Empty;
+
+        [Required]
+        [Display(Name = "Middle Name")]
+        [StringLength(12, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 3)]
+        public string MiddleName { get; set; } = string.Empty;
+
+        [Required]
+        [Display(Name = "Date of Birth")]
+        public DateTime? DateOfBirth { get; set; }
+
+        [Display(Name = "Father's Name")]
+        public String FathersName { get; set; } = string.Empty;
+
+        [Display(Name = "Mother's Name")]
+        public String MothersName { get; set; } = string.Empty;
+
+        [Display(Name = "Guardian's Name")]
+        public String GuardianName { get; set; } = string.Empty;
+
+        [Phone]
+        [Display(Name = "Father's Phone")]
+        public String FathersPhone { get; set; } = string.Empty;
+
+        [Phone]
+        [Display(Name = "Mother's Phone")]
+        public String MothersPhone { get; set; } = string.Empty;
+
+        [Phone]
+        [Display(Name = "Guardian's Phone")]
+        public String GuardianPhone { get; set; } = string.Empty;
+    }
+
+    async void Register()
+    {
+        StudentRegistrationRequest data = new StudentRegistrationRequest
+        {
+            FirstName = Input.FirstName,
+            LastName = Input.LastName,
+            MiddleName = Input.MiddleName,
+            BirthDate = Input.DateOfBirth,
+            FathersName = Input.FathersName,
+            MothersName = Input.MothersName,
+            GuardiansName = Input.GuardianName,
+            FathersPhoneNumber = Input.FathersPhone,
+            MothersPhoneNumber = Input.MothersPhone,
+            GuardiansPhoneNumber = Input.GuardianPhone,
+            Gender = "Female"
+        };
+
+        var response = await _apiClient.RegisterStudent(data);
+        await ShowSuccessAsync(response);
+    }
+
+    private async Task ShowSuccessAsync(StudentRegistrationRequest response)
+    {
+        var dialog = await DialogService.ShowSuccessAsync($"{response.FirstName} {response.MiddleName} {response.LastName} has been registered");
+        var result = await dialog.Result;
+        canceled = result.Cancelled;
+    }
+}

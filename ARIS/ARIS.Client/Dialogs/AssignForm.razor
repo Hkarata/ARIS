@@ -1,0 +1,151 @@
+﻿@implements IDialogContentComponent<StudentAdvancedData>
+
+@inject ARISApiClient _apiClient
+@inject IMessageService MessageService
+
+<FluentMessageBarProvider Section="MESSAGES_DIALOG" MaxMessageCount="5" />
+<br />
+<FluentStack Orientation="Orientation.Horizontal">
+	<FluentSelect TOption="FormModel"
+				  Label="Select a form"
+				  Items="@Forms"
+				  OptionValue="@(f => f.FormName)"
+				  OptionText="@(f => f.FormName)"
+				  @bind-Value=@SelectedForm
+				  Style="font-family:Bahnschrift"/>
+
+	<FluentSelect TOption="StreamModel"
+				  Label="Select a stream"
+				  Items="@Streams"
+				  OptionValue="@(s => s.StreamName)"
+				  OptionText="@(s => s.StreamName)"
+				  @bind-Value=@SelectedStream 
+				  Style="font-family:Bahnschrift" />
+
+</FluentStack>
+
+<br />
+<br />
+
+<FluentButton OnClick="Assign" Style="width:100%;font-family:Bahnschrift" Appearance="Appearance.Accent">Assign</FluentButton>
+
+
+@code {
+
+	[Parameter]
+	public StudentAdvancedData Content { get; set; } = default!;
+
+	[CascadingParameter]
+	public FluentDialog? Dialog { get; set; }
+
+	public string? SelectedForm { get; set; }
+	public string? SelectedStream { get; set; }
+
+	private void ToggleDialogPrimaryActionButton(bool enable)
+	{
+		Dialog!.TogglePrimaryActionButton(enable);
+	}
+
+	private class FormModel
+	{
+		public string FormName { get; set; } = string.Empty;
+	}
+
+	private class StreamModel
+	{
+		public string StreamName { get; set; } = string.Empty;
+	}
+
+	public class Form
+	{
+		public int Id { get; set; }
+		public string ClassName { get; set; } = string.Empty;
+		public string Stream { get; set; } = string.Empty;
+	}
+
+	private List<FormModel> Forms = new()
+	{
+		new FormModel { FormName = "Form One" },
+		new FormModel { FormName = "Form Two" },
+		new FormModel { FormName = "Form Three" },
+		new FormModel { FormName = "Form Four" },
+		new FormModel { FormName = "Form Five" },
+		new FormModel { FormName = "Form Six" },
+	};
+
+	private List<StreamModel> Streams = new()
+	{
+		new StreamModel { StreamName = "Stream A"},
+		new StreamModel { StreamName = "Stream B"},
+		new StreamModel { StreamName = "Stream C"},
+		new StreamModel { StreamName = "Stream D"},
+	};
+
+	public int GetFormId(string className, string stream)
+	{
+		List<Form> forms = new List<Form>
+	{
+		new Form { Id = 1, ClassName = "Form One", Stream = "Stream A" },
+		new Form { Id = 2, ClassName = "Form One", Stream = "Stream B" },
+		new Form { Id = 3, ClassName = "Form One", Stream = "Stream C" },
+		new Form { Id = 4, ClassName = "Form One", Stream = "Stream D" },
+		new Form { Id = 5, ClassName = "Form Two", Stream = "Stream A" },
+		new Form { Id = 6, ClassName = "Form Two", Stream = "Stream B" },
+		new Form { Id = 7, ClassName = "Form Two", Stream = "Stream C" },
+		new Form { Id = 8, ClassName = "Form Two", Stream = "Stream D" },
+		new Form { Id = 9, ClassName = "Form Three", Stream = "Stream A" },
+		new Form { Id = 10, ClassName = "Form Three", Stream = "Stream B" },
+		new Form { Id = 11, ClassName = "Form Three", Stream = "Stream C" },
+		new Form { Id = 12, ClassName = "Form Three", Stream = "Stream D" },
+		new Form { Id = 13, ClassName = "Form Four", Stream = "Stream A" },
+		new Form { Id = 14, ClassName = "Form Four", Stream = "Stream B" },
+		new Form { Id = 15, ClassName = "Form Four", Stream = "Stream C" },
+		new Form { Id = 16, ClassName = "Form Four", Stream = "Stream D" }
+	};
+
+		var form = forms.FirstOrDefault(f => f.ClassName == className && f.Stream == stream);
+		return form != null ? form.Id : -1; // return -1 if no matching form is found
+	}
+
+
+	private async void Assign()
+	{
+		if (string.IsNullOrEmpty(SelectedForm) || string.IsNullOrEmpty(SelectedStream))
+		{
+			MessageService.ShowMessageBar(options =>
+			{
+				options.Intent = MessageIntent.Warning;
+				options.Body = "Please select a form and a stream";
+				options.Section = "MESSAGES_DIALOG";
+				options.Timeout = 3000;
+			});
+		}
+		else
+		{
+			var formId = GetFormId(SelectedForm, SelectedStream);
+			var result = await _apiClient.AssignStudentToForm(Content.Id, formId);
+			if (result.IsSuccessStatusCode)
+			{
+				MessageService.ShowMessageBar(options =>
+				{
+					options.Intent = MessageIntent.Success;
+					options.Body = $"{Content.FirstName} {Content.LastName} has been assigned to {SelectedForm} {SelectedStream}";
+					options.Section = "MESSAGES_DIALOG";
+					options.Timeout = 3000;
+				});
+
+
+			}
+			else
+			{
+				MessageService.ShowMessageBar(options =>
+				{
+					options.Intent = MessageIntent.Error;
+					options.Body = "An error occurred while assigning student to form";
+					options.Section = "MESSAGES_DIALOG";
+					options.Timeout = 3000;
+				});
+			}
+		}
+	}
+}
